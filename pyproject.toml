@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unico-python"
+version = "0.1.0"
+description = "Python Client for the UNICO Api"
+authors = [
+    { name = "UNICO", email = "info@theunico.it" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests"
+]
+
+[tool.setuptools.packages.find]
+where = ["unico"]
