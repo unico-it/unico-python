@@ -23,7 +23,7 @@ In your `Pipfile`:
 
 ```toml
 [packages]
-unico-python = { git = "https://github.com/unico-it/unico-python.git", ref = "main" }
+unico = { git = "https://github.com/unico-it/unico-python.git", ref = "main" }
 ```
 
 Then run:

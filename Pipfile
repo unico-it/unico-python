@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 requests = "*"
-unico-python = {file = ".", editable = true}
+unico = {file = ".", editable = true}
 
 [dev-packages]
 pytest = "*"
