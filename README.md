@@ -35,9 +35,9 @@ pipenv install
 ## Example
 
 ```python
-from unico.client import UnicoApiClient
+from unico import Client
 
-client = UnicoApiClient(api_key="YOUR_API_KEY")
+client = Client(api_key="YOUR_API_KEY")
 
 # Retrieve agents
 agents = client.agents.retrieve()
