@@ -37,18 +37,18 @@ pipenv install
 ```python
 from unico import Client
 
-client = Client(api_key="YOUR_API_KEY")
+client = Client(api_key="YOUR_API_KEY", base_url="OPTIONAL_UNICO_API_BASE_URL")
 
 # Retrieve agents
 agents = client.agents.retrieve()
 print(agents)
 
 # Add some contexts
-result = client.contexts.create(agent="Luma", contexts=["New fantastic context"])
+result = client.agent(id).contexts.create(["New fantastic context"])
 print(result)
 
 # Create completions
-result = client.completions.create(agent="Luma", query="Hello World!")
+result = client.agent(id).completions.create("Hello World!")
 print(result)
 ```
 

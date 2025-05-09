@@ -1,4 +1,7 @@
 import requests
+
+from .completions import Completions
+from .contexts import Contexts
 from ..exceptions import UnicoAPIClientError
 
 
@@ -12,8 +15,10 @@ def _handle_response(response):
 
 
 class Agents:
-    def __init__(self, client):
+    def __init__(self, client, agent_id: int = None):
         self.client = client
+        self.contexts = Contexts(client, agent_id)
+        self.completions = Completions(client, agent_id)
 
     def retrieve(self):
         url = f"{self.client.base_url}/agents"

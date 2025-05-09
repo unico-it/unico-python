@@ -1,4 +1,5 @@
 import requests
+
 from ..exceptions import UnicoAPIClientError
 
 
@@ -12,13 +13,16 @@ def _handle_response(response):
 
 
 class Contexts:
-    def __init__(self, client):
+    def __init__(self, client, agent_id: int = None):
         self.client = client
+        self.agent_id = agent_id
 
-    def create(self, agent: str, contexts: []):
-        url = f"{self.client.base_url}/contexts/create"
+    def create(self, contexts: []):
+        if not self.agent_id:
+            raise UnicoAPIClientError("agent_id is required. Be sure to use agent(id) for this method")
+
+        url = f"{self.client.base_url}/agents/{self.agent_id}/contexts/create"
         payload = {
-            "agent": agent,
             "contexts": contexts
         }
         response = requests.post(url, headers=self.client.headers(), json=payload)
