@@ -13,6 +13,3 @@ class Client:
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
-
-    def agent(self, agent_id: int = None):
-        return Agents(self, agent_id)

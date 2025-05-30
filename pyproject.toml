@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "unico"
+name = "unico-python"
 version = "0.1.0"
 description = "Python Client for the UNICO Api"
 authors = [
@@ -15,6 +15,7 @@ requires-python = ">=3.11"
 dependencies = [
     "requests"
 ]
+keywords = ["api", "client", "unico", "requests", "python"]
 
 [tool.setuptools.packages.find]
 where   = ["."]
