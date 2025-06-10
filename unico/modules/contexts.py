@@ -13,15 +13,11 @@ def _handle_response(response):
 
 
 class Contexts:
-    def __init__(self, client, agent_id: int = None):
+    def __init__(self, client):
         self.client = client
-        self.agent_id = agent_id
 
-    def create(self, contexts: []):
-        if not self.agent_id:
-            raise UnicoAPIClientError("agent_id is required. Be sure to use agent(id) for this method")
-
-        url = f"{self.client.base_url}/agents/{self.agent_id}/contexts/create"
+    def create(self, agent_id, contexts: []):
+        url = f"{self.client.base_url}/agents/{agent_id}/contexts/create"
         payload = {
             "contexts": contexts
         }

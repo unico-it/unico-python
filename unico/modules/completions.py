@@ -13,15 +13,11 @@ def _handle_response(response):
 
 
 class Completions:
-    def __init__(self, client, agent_id: int = None):
+    def __init__(self, client):
         self.client = client
-        self.agent_id = agent_id
 
-    def create(self, query: str):
-        if not self.agent_id:
-            raise UnicoAPIClientError("agent_id is required. Be sure to use agent(id) for this method")
-
-        url = f"{self.client.base_url}/agents/{self.agent_id}/completions"
+    def create(self, agent_id, query: str):
+        url = f"{self.client.base_url}/agents/{agent_id}/completions"
         payload = {
             "query": query
         }

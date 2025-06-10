@@ -15,10 +15,10 @@ def _handle_response(response):
 
 
 class Agents:
-    def __init__(self, client, agent_id: int = None):
+    def __init__(self, client):
         self.client = client
-        self.contexts = Contexts(client, agent_id)
-        self.completions = Completions(client, agent_id)
+        self.contexts = Contexts(client)
+        self.completions = Completions(client)
 
     def retrieve(self):
         url = f"{self.client.base_url}/agents"

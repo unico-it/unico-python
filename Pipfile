@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
-unico = {file = ".", editable = true}
+requests = ">=2.32.4"
+unico-python = {file = ".", editable = true}
 
 [dev-packages]
 pytest = "*"
+build = "*"
+twine = "*"
 
 [requires]
 python_version = "3.11"

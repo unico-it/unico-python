@@ -23,7 +23,7 @@ In your `Pipfile`:
 
 ```toml
 [packages]
-unico = { git = "https://github.com/unico-it/unico-python.git", ref = "main" }
+unico-python = { git = "https://github.com/unico-it/unico-python.git", ref = "main" }
 ```
 
 Then run:
@@ -44,11 +44,11 @@ agents = client.agents.retrieve()
 print(agents)
 
 # Add some contexts
-result = client.agent(id).contexts.create(["New fantastic context"])
+result = client.agents.contexts.create(id, ["New fantastic context"])
 print(result)
 
 # Create completions
-result = client.agent(id).completions.create("Hello World!")
+result = client.agents.completions.create(id, "Hello World!")
 print(result)
 ```
 
