@@ -6,33 +6,13 @@ Pythonic interface to the available API endpoints. With just an API key, users c
 with UNICO services, including retrieving available agents, add contexts and generating completions via intelligent
 agents.
 
-## Get Started (Development)
+## Getting Started
 
-1. **Install [pipenv](https://pipenv.pypa.io/en/latest/installation.html)**:
-   Pipenv is used to handle the virtual environment and the necessary packages.
-
-2. **Install necessary packages from `Pipfile`**
-
-   ```bash
-   pipenv install
-   ```
-
-## Installation from GitHub
-
-In your `Pipfile`:
-
-```toml
-[packages]
-unico-python = { git = "https://github.com/unico-it/unico-python.git", ref = "main" }
+```
+pip install unico-python
 ```
 
-Then run:
-
-```bash
-pipenv install
-```
-
-## Example
+## Usage
 
 ```python
 from unico import Client
@@ -51,6 +31,17 @@ print(result)
 result = client.agents.completions.create(id, "Hello World!")
 print(result)
 ```
+
+## Development
+
+1. **Install [pipenv](https://pipenv.pypa.io/en/latest/installation.html)**:
+   Pipenv is used to handle the virtual environment and the necessary packages.
+
+2. **Install necessary packages from `Pipfile`**
+
+   ```bash
+   pipenv install
+   ```
 
 ## Before pushing
 
