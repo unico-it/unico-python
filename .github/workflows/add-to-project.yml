@@ -1,0 +1,30 @@
+name: Add Issues and PRs to Project
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+env:
+  gh_app_ID: ${{ secrets.GH_APP_ID }}
+  gh_app_installation_ID: ${{ secrets.GH_APP_INSTALLATION_ID }}
+  gh_app_secret_key: ${{ secrets.GH_APP_SECRET_KEY }}
+  organization: 'unico-it'
+  project_id: 1
+  status_value: 'Ready'
+
+jobs:
+  add_to_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add item to project
+        uses: leonsteinhaeuser/project-beta-automations@939000fb1900c9fc4f7b5058a09d9f833ebc6859
+        with:
+          gh_app_ID: ${{ env.gh_app_ID }}
+          gh_app_installation_ID: ${{ env.gh_app_installation_ID }}
+          gh_app_secret_key: ${{ env.gh_app_secret_key }}
+          organization: ${{ env.organization }}
+          project_id: ${{ env.project_id }}
+          resource_node_id: ${{ github.event.issue.node_id || github.event.pull_request.node_id }}
+          status_value: ${{ env.status_value }}
