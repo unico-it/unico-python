@@ -14,10 +14,14 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "requests",
-    "twine>=6.1.0",
 ]
 keywords = ["api", "client", "unico", "requests", "python"]
 
 [tool.setuptools.packages.find]
 where   = ["."]
 include = ["unico", "unico.*"]
+
+[dependency-groups]
+dev = [
+    "twine>=6.1.0",
+]

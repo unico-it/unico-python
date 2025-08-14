@@ -60,6 +60,32 @@ git fetch
 git pull origin main --rebase
 ```
 
+## Publishing
+
+1. Update version in `pyproject.toml`
+
+2. Install development dependencies:
+   ```bash
+   uv sync --group dev
+   ```
+
+3. **Build the package**:
+   ```bash
+   uv build
+   ```
+
+### Test on TestPyPI (recommended):
+
+   ```bash
+   uv run twine upload --repository testpypi dist/*
+   ```
+
+### Release to PyPI
+
+   ```bash
+   uv run twine upload dist/*
+   ```
+
 ## Contributing
 
 If you want to contribute to **UNICO Python package**, follow these steps:
