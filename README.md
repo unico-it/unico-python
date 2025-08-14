@@ -34,13 +34,20 @@ print(result)
 
 ## Development
 
-1. **Install [pipenv](https://pipenv.pypa.io/en/latest/installation.html)**:
-   Pipenv is used to handle the virtual environment and the necessary packages.
+1. **Install [uv](https://docs.astral.sh/uv/getting-started/installation/#pypi)**:
+   uv is used to manage the virtual environment and necessary packages.
 
-2. **Install necessary packages from `Pipfile`**
+2. **Create virtual environment**:
+   uv will automatically read the `.python-version` file and install the correct Python version:
 
    ```bash
-   pipenv install
+   uv venv
+   ```
+
+3. **Install necessary packages**
+
+   ```bash
+   uv sync
    ```
 
 ## Before pushing

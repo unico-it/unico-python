@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "unico-python"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python Client for the UNICO Api"
 authors = [
     { name = "UNICO", email = "info@theunico.it" }
@@ -13,7 +13,8 @@ license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "requests"
+    "requests",
+    "twine>=6.1.0",
 ]
 keywords = ["api", "client", "unico", "requests", "python"]
 
