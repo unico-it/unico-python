@@ -62,29 +62,45 @@ git pull origin main --rebase
 
 ## Publishing
 
-1. Update version in `pyproject.toml`
+The package is automatically published to PyPI via GitHub Actions when a release is created.
 
-2. Install development dependencies:
-   ```bash
-   uv sync --group dev
+1. **Update the version** in `pyproject.toml`:
+   ```toml
+   [project]
+   version = "1.2.3"
    ```
 
-3. **Build the package**:
-   ```bash
-   uv build
-   ```
+2. **Create a release** on GitHub:
+    - Go to **Releases** in the repository
+    - Click **Create a new release**
+    - **Tag version**: `v1.2.3` (same version number as in pyproject.toml)
+    - **Release title**: `v1.2.3` or `Release 1.2.3`
+    - **Description**: Add what's new in this version, for example:
+      ```markdown
+      ## What's New
+      
+      ### Added
+      - New feature X
+      - Support for Y
+      
+      ### Fixed
+      - Fixed bug Z
+      - Improved performance of W
+      
+      ### Changed
+      - Updated ABC dependency to version 2.0
+      
+      ## Full Changelog
+      https://github.com/unico-it/unico-python/compare/v1.2.2...v1.2.3
+      ```
 
-### Test on TestPyPI (recommended):
+3. **Publish the release**: The GitHub Action will automatically trigger and publish the package to PyPI.
 
-   ```bash
-   uv run twine upload --repository testpypi dist/*
-   ```
+### Notes:
 
-### Release to PyPI
-
-   ```bash
-   uv run twine upload dist/*
-   ```
+- Make sure the version in `pyproject.toml` matches the release tag
+- Publishing takes a few minutes to complete
+- You can monitor the progress in the **Actions** section of the repository
 
 ## Contributing
 
