@@ -34,13 +34,20 @@ print(result)
 
 ## Development
 
-1. **Install [pipenv](https://pipenv.pypa.io/en/latest/installation.html)**:
-   Pipenv is used to handle the virtual environment and the necessary packages.
+1. **Install [uv](https://docs.astral.sh/uv/getting-started/installation/#pypi)**:
+   uv is used to manage the virtual environment and necessary packages.
 
-2. **Install necessary packages from `Pipfile`**
+2. **Create virtual environment**:
+   uv will automatically read the `.python-version` file and install the correct Python version:
 
    ```bash
-   pipenv install
+   uv venv
+   ```
+
+3. **Install necessary packages**
+
+   ```bash
+   uv sync
    ```
 
 ## Before pushing
@@ -52,6 +59,48 @@ between main and your branch):
 git fetch
 git pull origin main --rebase
 ```
+
+## Publishing
+
+The package is automatically published to PyPI via GitHub Actions when a release is created.
+
+1. **Update the version** in `pyproject.toml`:
+   ```toml
+   [project]
+   version = "1.2.3"
+   ```
+
+2. **Create a release** on GitHub:
+    - Go to **Releases** in the repository
+    - Click **Create a new release**
+    - **Tag version**: `v1.2.3` (same version number as in pyproject.toml)
+    - **Release title**: `v1.2.3` or `Release 1.2.3`
+    - **Description**: Add what's new in this version, for example:
+      ```markdown
+      ## What's New
+      
+      ### Added
+      - New feature X
+      - Support for Y
+      
+      ### Fixed
+      - Fixed bug Z
+      - Improved performance of W
+      
+      ### Changed
+      - Updated ABC dependency to version 2.0
+      
+      ## Full Changelog
+      https://github.com/unico-it/unico-python/compare/v1.2.2...v1.2.3
+      ```
+
+3. **Publish the release**: The GitHub Action will automatically trigger and publish the package to PyPI.
+
+### Notes:
+
+- Make sure the version in `pyproject.toml` matches the release tag
+- Publishing takes a few minutes to complete
+- You can monitor the progress in the **Actions** section of the repository
 
 ## Contributing
 
